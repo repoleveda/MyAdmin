@@ -26,7 +26,6 @@ return [
             [
                 'title' => 'Users',
                 'url' => 'auth/users',
-//                    'url'   => 'myUser',
                 'icon' => 'fa-user',
             ],
             [

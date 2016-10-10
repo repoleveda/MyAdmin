@@ -41,9 +41,6 @@ class MyUserController extends Controller
         return Admin::content(function (Content $content) use ($id) {
             $content->header('header');
             $content->description('description');
-//            dd($content);
-//            dd($id);
-//            dd($this->form());
             $content->body($this->form()->edit($id));
         });
     }
@@ -97,10 +94,8 @@ class MyUserController extends Controller
             $form->display('id', 'ID');
 
             $form->text('name', trans('admin::lang.username'))->rules('required');
-//            $form->text('name', trans('admin::lang.name'))->rules('required');
             $form->password('password', trans('admin::lang.password'))->rules('required');
             $form->text('email', '邮箱')->rules('required');
-//            $form->multipleSelect('roles', trans('admin::lang.roles'))->options(Role::all()->pluck('name', 'id'));
 
             $form->display('created_at', trans('admin::lang.created_at'));
             $form->display('updated_at', trans('admin::lang.updated_at'));
