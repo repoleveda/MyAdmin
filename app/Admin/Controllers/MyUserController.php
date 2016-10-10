@@ -75,8 +75,8 @@ class MyUserController extends Controller
             $grid->name('用户名');
             $grid->email('邮箱');
             $grid->password('密码');
-            $grid->created_at('创建时间');
-            $grid->updated_at('更新时间');
+            $grid->created_at('创建时间')->sortable();
+            $grid->updated_at('更新时间')->sortable();
 
             $grid->paginate(10);
 
@@ -99,7 +99,6 @@ class MyUserController extends Controller
 
             $form->display('created_at', trans('admin::lang.created_at'));
             $form->display('updated_at', trans('admin::lang.updated_at'));
-
             $form->saving(function (Form $form) {
                 if ($form->password && $form->model()->password != $form->password) {
                     $form->password = bcrypt($form->password);
